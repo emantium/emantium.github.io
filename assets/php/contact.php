@@ -1,8 +1,8 @@
 <?php
 
 	// Mail settings
-	$to      = "tanislav.robert@gmail.com";
-	$subject = "Looper";
+	$to      = "inquire@emantium.com";
+	$subject = "Emantium Inquiry";
 
 	// You can put here your email
 	$header = "From: noreply@woctech.ro\r\n";
