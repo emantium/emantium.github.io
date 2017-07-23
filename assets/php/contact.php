@@ -5,7 +5,7 @@
 	$subject = "Emantium Inquiry";
 
 	// You can put here your email
-	$header = "From: noreply@woctech.ro\r\n";
+	$header = "From: Tlaw@emantium.com";
 	$header.= "MIME-Version: 1.0\r\n";
 	$header.= "Content-Type: text/plain; charset=utf-8\r\n";
 	$header.= "X-Priority: 1\r\n";
