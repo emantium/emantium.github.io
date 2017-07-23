@@ -1,11 +1,11 @@
 <?php
 
 	// Mail settings
-	$to      = "inquire@emantium.com";
-	$subject = "Emantium Inquiry";
+	$to      = "tanislav.robert@gmail.com";
+	$subject = "Looper";
 
 	// You can put here your email
-	$header = "From: inquire@emantium.com\r\n";
+	$header = "From: noreply@woctech.ro\r\n";
 	$header.= "MIME-Version: 1.0\r\n";
 	$header.= "Content-Type: text/plain; charset=utf-8\r\n";
 	$header.= "X-Priority: 1\r\n";
