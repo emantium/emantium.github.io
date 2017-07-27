@@ -22,13 +22,15 @@
 		// new PHPMailer 
 		$mail = new PHPMailer();
 
+		$mail->SMTPDebug = 3;  
+
 		// PHPMailer ValidateAddress 
 		if( !$mail->ValidateAddress($email) ){
 			$errorMsg = "Email address is invalid.";
 		}
 
 		//Email setup and send
-		$mail->setFrom("info@test.com", "your name");
+		$mail->setFrom("info@gmail.com", "gmail");
 		$mail->AddReplyTo($email, $name);
 		$mail->addAddress($to, 'VZKiss.com');
 
@@ -47,11 +49,9 @@
 		if (!$mail->send()) {
 			if ($errorMsg == "") {
 		    	echo "There was a problem sending the email: " . $mail->ErrorInfo;
-		    	redirect_no_ajax();
 		    	exit;
 		    } else {
 		    	echo $errorMsg;
-		    	redirect_no_ajax();
 		    	exit;
 		    }
 		}
@@ -61,7 +61,7 @@
 		exit;
 	}
 
-/* AJAX check  */
+/* AJAX check */
 function redirect_no_ajax() {
 	
 	if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
