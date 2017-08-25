@@ -25,7 +25,7 @@
 
 				$.ajax({
 					type: 'POST',
-					url: 'http://vzkiss.com/demo/emantium.php',
+					url: 'assets/js/contact_mailer.php',
 					//dataType: 'json',
 					data: sendData,
 					//cache: false,
