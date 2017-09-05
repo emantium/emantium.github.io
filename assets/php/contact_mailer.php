@@ -1,8 +1,8 @@
 <?php
 
 	// SMTP Email creds for PHPMailer
-	define("CONTACT_EMAIL", "vzkiss@gmail.com");
-	define("APP_PASSWORD", "oqgtyktbywtocvvl");
+	define("CONTACT_EMAIL", "trevorlawpogue@gmail.com");
+	define("APP_PASSWORD", "deluqcexarrosbie");
 
 	// Mail settings
 	$to      = "inquire@emantium.com";
