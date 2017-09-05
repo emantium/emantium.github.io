@@ -25,7 +25,7 @@
 
 				$.ajax({
 					type: 'POST',
-					url: 'assets/js/contact_mailer.php',
+					url: 'assets/php/contact_mailer.php',
 					//dataType: 'json',
 					data: sendData,
 					//cache: false,
