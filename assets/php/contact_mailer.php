@@ -1,7 +1,7 @@
 <?php
 
 	// SMTP Email creds for PHPMailer
-	define("CONTACT_EMAIL", "trevorlawpogue@gmail.com");
+	define("CONTACT_EMAIL", "trevorlawla@gmail.com");
 	define("APP_PASSWORD", "deluqcexarrosbie");
 
 	// Mail settings
