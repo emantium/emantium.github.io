@@ -5,7 +5,7 @@
 	define("APP_PASSWORD", "oqgtyktbywtocvvl");
 
 	// Mail settings
-	$to      = "vzkiss@gmail.com";
+	$to      = "inquire@emantium.com";
 	$subject = "Emantium Inquiry";
 
 
@@ -45,7 +45,7 @@
 		//Email setup and send
 		$mail->setFrom($email, $name);
 		$mail->AddReplyTo($email, $name);
-		$mail->addAddress($to, 'VZKiss.com');
+		$mail->addAddress($to, 'Emantium');
 
 
 		$mail->isHTML(true);	// Set email format to HTML
