@@ -1,7 +1,11 @@
 <?php
 
+	// SMTP Email creds for PHPMailer
+	define("CONTACT_EMAIL", "trevorlawla@gmail.com");
+	define("APP_PASSWORD", "deluqcexarrosbie");
+
 	// Mail settings
-	$to      = "vzkiss@gmail.com";
+	$to      = "inquire@emantium.com";
 	$subject = "Emantium Inquiry";
 
 
@@ -22,17 +26,26 @@
 		// new PHPMailer 
 		$mail = new PHPMailer();
 
-		$mail->SMTPDebug = 3;  
+		//$mail->SMTPDebug = 3;  
 
 		// PHPMailer ValidateAddress 
 		if( !$mail->ValidateAddress($email) ){
 			$errorMsg = "Email address is invalid.";
 		}
 
+		// Set server details for send
+	    $mail->isSMTP();
+	    $mail->Host = "smtp.gmail.com";
+	    $mail->SMTPAuth = true;
+	    $mail->Username = CONTACT_EMAIL;
+	    $mail->Password = APP_PASSWORD;
+	    $mail->SMTPSecure = 'ssl'; 
+	    $mail->Port = 465;
+
 		//Email setup and send
-		$mail->setFrom("info@gmail.com", "gmail");
+		$mail->setFrom($email, $name);
 		$mail->AddReplyTo($email, $name);
-		$mail->addAddress($to, 'VZKiss.com');
+		$mail->addAddress($to, 'Emantium');
 
 
 		$mail->isHTML(true);	// Set email format to HTML
