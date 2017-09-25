@@ -1,5 +1,17 @@
 <?php
+/**
+ * RSS Feed Loader
+ *
+ * Author: Vilmos Zoltan Kiss
+ * Author URI: http://vzkiss.com
+ *
+ */
 
+
+/* Accepts the URL of the feed as a string argument and returns the feed articles in an array
+ * @param    string      the feed URL
+ * @return   array      the $feed array of articles;
+ */
 function getFeed($feed_url) {
 
 	$rss = new DOMDocument();
@@ -7,6 +19,11 @@ function getFeed($feed_url) {
 
 	$feed = array();
 
+	/*try {
+		@$rss->load($feed_url);
+	} catch (Exception $e) {
+		return null;
+	}*/
 
 	foreach($rss->getElementsByTagName('item') as $node){
 		
@@ -14,23 +31,8 @@ function getFeed($feed_url) {
 			'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
 			'desc' => $node->getElementsByTagName('description')->item(0)->nodeValue,
 			'link' => $node->getElementsByTagName('link')->item(0)->nodeValue,
-			'date' => $node->getElementsByTagName('pubDate')->item(0)->nodeValue
+			'date' => date('D, d M Y', strtotime($node->getElementsByTagName('pubDate')->item(0)->nodeValue))
 			);
-
-		// Check if Author, <creathor> is part of the XMLL. If it is add it to the array
-		if( $node->getElementsByTagName('creator')->length  != 0 ) {
-			$item = array(
-				'author' => $node->getElementsByTagName('creator')->item(0)->nodeValue
-				);
-		}
-
-		
-		// Check if the post content, <content:encoded> is part of the XML. If it is add it to the array
-		if( $node->getElementsByTagName('encoded')->length  != 0 ) {
-			$item = array(
-				'content' => $node->getElementsByTagName('encoded')->item(0)->nodeValue
-				);
-		}
 
 		array_push($feed, $item);
 	}
@@ -38,60 +40,48 @@ function getFeed($feed_url) {
 	return $feed;
 }
 
-function displayFeed($feed, $limit) {
-
-	if ($feed == 'null') {
-		echo 'empty feed';
-	} else {
-
-		for ( $x=0; $x<$limit; $x++ ) {
-
-			$title = str_replace('&', '&amp', $feed[$x]['title']);
-			$link = $feed[$x]['link'];
-			$description = $feed[$x]['description'];
-			$date = $feed[$x]['date'];
-			$content = $feed[$x]['content'];
-
-			echo '<!-- POST -->';
-			
-			echo '<div class="col-sm-6 col-md-6 col-lg-6">';
-				echo '<div class="post">';
-					echo '<div class="post-title">';
-					echo '<h2>Title</h2>';
-					echo '</div>';
-					echo '<div class="post-meta">';
-						echo 'By <a href="#">Oana Calota </a> / 3 January  2017 / 30 comm.';
-					echo '</div>';
-					echo '<div class="post-entry">';
-						echo '<p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>';
-					echo '</div>';
-					echo '<div class="post-more-link">';
-						echo '<a href="blog-single.html" class="looper-btn">Read more</a>';
-					echo '</div>';
-				echo '</div>';
-			echo '</div>';
-			echo '<!-- /POST -->';
-			
-			/*******************/
-
-			echo '<p><strong><a href="'.$link.'" title="'.$title.'">'.$title.'</a></strong><br />';
-			echo '<small><em>Posted on '.$date.'</em></small></p>';
-			echo '<p>'.$description.'</p>';
-		}
-	}
+/* Checks if the array of the feed is empty
+ * @param    array     	the feed array of articles
+ * @param 	 boolean    true if the feed is empty
+ */
+function emptyFeed($feed) {
+	if($feed == null) return true;
+	return false;
 }
 
-$federalReserve_feed = getFeed('https://www.federalreserve.gov/feeds/press_all.xml');
-$epiOrg_feed = getFeed('http://epi.org/blog/feed/');
+/* Displays a subset of articles from the Feed with a specified limit.
+ * If limit is set to -1, there is no limit.
+ * @param    array     the feed array of articles
+ * @param 	 int       the limit, number of articles to show;
+ */
+function displayFeed($feed, $limit) {
 
-echo '<h1 style="text-align: center;">epi.org RSS feed</h1>';
+	$count = 0; // count helper for the limit
 
-echo '<pre>';
-var_dump($epiOrg_feed);
-echo '</pre>';
+	foreach ( $feed as $article ) {
 
-echo '<h1 style="text-align: center;">Federal Reserve Press_ALL</h1>';
+		$count++;
+		if( $count > $limit && $limit != -1 ) break;
 
-echo '<pre>';
-var_dump($federalReserve_feed);
-echo '</pre>';
+		//$title = str_replace('&', '&amp', $feed[$x]['title']);
+
+		echo '<!-- POST -->';
+		echo '<div class="col-sm-6 col-md-6 col-lg-6">';
+			echo '<div class="post">';
+				echo '<div class="post-title">';
+				echo '<h3>' . $article['title'] .'</h3>';
+				echo '</div>';
+				echo '<div class="post-meta">';
+					echo $article['date'];
+				echo '</div>';
+				echo '<div class="post-entry">';
+					echo '<p>'. $article['desc'] .'</p>';
+				echo '</div>';
+				echo '<div class="post-more-link">';
+					echo '<a href="'. $article['link'] . '" class="looper-btn">Read more</a>';
+				echo '</div>';
+			echo '</div>';
+		echo '</div>';
+		echo '<!-- /POST -->';
+	}
+}
