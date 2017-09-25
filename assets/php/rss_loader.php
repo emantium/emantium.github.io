@@ -45,7 +45,7 @@ function displayFeed($feed, $limit) {
 	} else {
 
 		for ( $x=0; $x<$limit; $x++ ) {
-			
+
 			$title = str_replace('&', '&amp', $feed[$x]['title']);
 			$link = $feed[$x]['link'];
 			$description = $feed[$x]['description'];
@@ -56,6 +56,9 @@ function displayFeed($feed, $limit) {
 			
 			echo '<div class="col-sm-6 col-md-6 col-lg-6">';
 				echo '<div class="post">';
+					echo '<div class="post-title">';
+					echo '<h2>Title</h2>';
+					echo '</div>';
 					echo '<div class="post-meta">';
 						echo 'By <a href="#">Oana Calota </a> / 3 January  2017 / 30 comm.';
 					echo '</div>';
@@ -69,6 +72,11 @@ function displayFeed($feed, $limit) {
 			echo '</div>';
 			echo '<!-- /POST -->';
 			
+			/*******************/
+
+			echo '<p><strong><a href="'.$link.'" title="'.$title.'">'.$title.'</a></strong><br />';
+			echo '<small><em>Posted on '.$date.'</em></small></p>';
+			echo '<p>'.$description.'</p>';
 		}
 	}
 }
