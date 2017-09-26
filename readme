@@ -1,0 +1,7 @@
+Feeds Setup
+
+Setup:
+Edit the file 'data/rss_feeds_array.php'. It contains an array of multiple feeds. A feed needs to have 3 values specified: "title" this will be shown between <h3> tags in the display code, 'url' to retreive feeds in an XML format, 'limit' to set how many of the latest articles you want to show from a specific feed 
+
+Display:
+The source code is in the 'view/feed_view.php' file. It uses the 2 column blog structure from the "Looper" Bootstrap theme. Uses php code to retreive and display information given in the 

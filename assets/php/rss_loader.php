@@ -8,11 +8,13 @@
  */
 
 
-/* Accepts the URL of the feed as a string argument and returns the feed articles in an array
- * @param    string      the feed URL
+/* Accepts the URL of the feed as a string argument and returns a limited 
+ * number of feed articles in an array.
+ * @param    string     the feed URL
+ * @param 	 int       	the limit, number of articles to show;
  * @return   array      the $feed array of articles;
  */
-function getFeed($feed_url) {
+function getFeed($feed_url, $limit) {
 
 	$rss = new DOMDocument();
 	$rss->load($feed_url);
@@ -25,7 +27,12 @@ function getFeed($feed_url) {
 		return null;
 	}*/
 
+	$count = 0; // count helper for the limit
+
 	foreach($rss->getElementsByTagName('item') as $node){
+
+		$count++;
+		if( $count > $limit && $limit != -1 ) break;
 		
 		$item = array(
 			'title' => $node->getElementsByTagName('title')->item(0)->nodeValue,
@@ -49,19 +56,13 @@ function emptyFeed($feed) {
 	return false;
 }
 
-/* Displays a subset of articles from the Feed with a specified limit.
+/* Displays a subset of articles from the feed.
  * If limit is set to -1, there is no limit.
  * @param    array     the feed array of articles
- * @param 	 int       the limit, number of articles to show;
  */
-function displayFeed($feed, $limit) {
-
-	$count = 0; // count helper for the limit
+function displayFeed($feed) {
 
 	foreach ( $feed as $article ) {
-
-		$count++;
-		if( $count > $limit && $limit != -1 ) break;
 
 		//$title = str_replace('&', '&amp', $feed[$x]['title']);
 

@@ -1,12 +1,9 @@
 <?php 
 // Include the RSS handler functions
-include('assets/php/rss_loader.php');
+include_once('assets/php/rss_loader.php');
 
-// Request the feeds we want to display
-$epiOrg_feed = getFeed('http://epi.org/blog/feed/');
-$federalReserve_feed = getFeed('https://www.federalreserve.gov/feeds/press_all.xml');
-
-// Use displayFeed($feedName, $limit) function to show the feed on the page
+// Include the array of feeds to retreive for display on the site.
+include_once('data/rss_feeds_array.php');
 
 ?>
 
@@ -321,70 +318,6 @@ $federalReserve_feed = getFeed('https://www.federalreserve.gov/feeds/press_all.x
         </section>
         <!-- END OF PORTFOLIO SECTION -->
 
-        <!-- BLOG SECTION -->
-
-        <!-- BLOG 2 COLUMN -->
-        <section id="rss-feed" class="brick bg-light">
-
-            <div class="container">
-
-                <div class="row">
-
-                    <!-- POSTS COLUMN -->
-                    <div class="col-sm-12">
-
-                      <?php if ( !emptyFeed($epiOrg_feed) ) : ?>
-
-                        <!-- FEED TITLE -->
-                        <div class="row text-center">
-                            <div class="col-md-12 col-xs-12">
-                                <h2 class="brick-title">Epi.org Feed</h2>
-                                <div class="divider title-divider"></div>
-                            </div>
-                        </div>
-                        <!-- END OF FEED TITLE -->
-
-                        <!-- FEED ARTICLES -->
-                        <div class="row multi-columns-row">
-
-                            <?php displayFeed($epiOrg_feed, 6); ?>
-
-                        </div><!-- /.row multi-columns-row -->
-                        <!-- END OF FEED ARTICLES -->
-
-                      <?php endif; ?>
-
-                      <?php if ( !emptyFeed($federalReserve_feed) ) : ?>
-
-                        <!-- FEED TITLE -->
-                        <div class="row text-center">
-                            <div class="col-md-12 col-xs-12">
-                                <h2 class="brick-title">Federal Reserve ALL PRESS Feed</h2>
-                                <div class="divider title-divider"></div>
-                            </div>
-                        </div>
-                        <!-- END OF FEED TITLE -->
-
-                        <!-- FEED ARTICLES -->
-                        <div class="row multi-columns-row">
-
-                            <?php displayFeed($federalReserve_feed, 12); ?>
-
-                        </div><!-- /.row multi-columns-row -->
-                        <!-- END OF FEED ARTICLES -->
-
-                      <?php endif; ?>
-                    
-                    </div> <!-- /.col-sm-12 -->
-
-                </div><!-- /.row -->
-            
-            </div><!-- /.container -->
-
-        </section><!-- /.brick -->
-
-        <!-- END OF BLOG SECTION -->
-
         <!-- TESTIMONIALS -->
         <div class="brick brick-md brick-parallax bg-film" data-background="assets/images/hero-2.jpg">
 
@@ -453,7 +386,7 @@ $federalReserve_feed = getFeed('https://www.federalreserve.gov/feeds/press_all.x
         <!-- BLOG SECTION -->
 
         <!-- CONTACT -->
-        <section class="brick bg-light">
+        <section class="brick bg-light brick-border">
 
             <div class="container">
 
@@ -541,6 +474,10 @@ $federalReserve_feed = getFeed('https://www.federalreserve.gov/feeds/press_all.x
             </div>
         </section>
         <!-- /CONTACT -->
+
+        <!-- FEED SECTION -->
+        <?php include('view/feed_view.php'); ?>
+        <!-- END OF FEED SECTION -->
 
         <!-- GOOGLE MAP -->
         <div class="contact_us_map">

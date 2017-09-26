@@ -1,29 +1,38 @@
+<?php 
+// Include the RSS handler functions
+include_once('assets/php/rss_loader.php');
+
+// Include the array of feeds to retreive for display on the site.
+include_once('data/rss_feeds_array.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="Giles Laurence">
-	<script type="application/ld+json">
-	{
-	  "@context": "http://schema.org",
-	  "@type": "Organization",
-	  "url": "http://Emantium.com",
-	  "name": "Emantium Group",
-	  "contactPoint": {
-	    "@type": "ContactPoint",
-	    "telephone": "+1-213-432-2377",
-	    "contactType": "Customer service"
-	  }
-	}
-	</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Giles Laurence">
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "http://Emantium.com",
+      "name": "Emantium Group",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-213-432-2377",
+        "contactType": "Customer service"
+      }
+    }
+    </script>
 
-	<!-- Start of HubSpot Embed Code -->
-	  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3776725.js"></script>
-	<!-- End of HubSpot Embed Code -->
+    <!-- Start of HubSpot Embed Code -->
+      <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/3776725.js"></script>
+    <!-- End of HubSpot Embed Code -->
 
-	<title>Emantium Home</title>
+    <title>Emantium Home</title>
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="assets/images/favicon.png">
@@ -31,32 +40,32 @@
     <link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
 
-	<!-- Bootstrap core CSS -->
-	<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Plugins -->
-	<link href="assets/css/font-awesome.min.css" rel="stylesheet">
-	<link href="assets/css/et-line-font.css" rel="stylesheet">
-	<link href="assets/css/simpletextrotator.css" rel="stylesheet">
-	<link href="assets/css/magnific-popup.css" rel="stylesheet">
-	<link href="assets/css/owl.carousel.css" rel="stylesheet">
-	<link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
-	<link href="assets/css/superslides.css" rel="stylesheet">
-	<link href="assets/css/margins.css" rel="stylesheet">
-	<link href="assets/css/animate.css" rel="stylesheet">
+    <!-- Plugins -->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/et-line-font.css" rel="stylesheet">
+    <link href="assets/css/simpletextrotator.css" rel="stylesheet">
+    <link href="assets/css/magnific-popup.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="assets/css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="assets/css/superslides.css" rel="stylesheet">
+    <link href="assets/css/margins.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
 
-	<!-- Template core CSS -->
-	<link href="assets/css/style.css" rel="stylesheet">
-	<!-- Responsive media querries -->
-	<link href="assets/css/responsive.css" rel="stylesheet">
+    <!-- Template core CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Responsive media querries -->
+    <link href="assets/css/responsive.css" rel="stylesheet">
 </head>
 <body>
 
-	<!-- PRELOADER -->
-	<div class="page-loader">
-		<div class="loader">Loading...</div>
-	</div>
-	<!-- /PRELOADER -->
+    <!-- PRELOADER -->
+    <div class="page-loader">
+        <div class="loader">Loading...</div>
+    </div>
+    <!-- /PRELOADER -->
 
     <!-- BORDERS -->
     <span class="border-line top-frame visible-lg"></span>
@@ -64,10 +73,10 @@
     <span class="border-line bottom-frame visible-lg"></span>
     <span class="border-line left-frame visible-lg"></span>
 
-	<!-- WRAPPER -->
-	<div class="wrapper">
+    <!-- WRAPPER -->
+    <div class="wrapper">
 
-	    <!-- NAVIGATION -->
+        <!-- NAVIGATION -->
         <nav class="border-navbar navbar-custom navbar-transparent navbar-fixed-top">
             <div class="container">
 
@@ -118,23 +127,23 @@
         </nav>
         <!-- /NAVIGATION -->
 
-		<!-- HERO -->
-		<section id="hero" class="brick-hero-2 full-height">
+        <!-- HERO -->
+        <section id="hero" class="brick-hero-2 full-height">
 
-			<!-- PARTICLES -->
-			<div id="particles-js">
-				<!-- HERO TEXT -->
-				<div class="hero-caption">
-					<div class="hero-text">
-						<h1 class="lop-size-lg">Emantium</h1>
+            <!-- PARTICLES -->
+            <div id="particles-js">
+                <!-- HERO TEXT -->
+                <div class="hero-caption">
+                    <div class="hero-text">
+                        <h1 class="lop-size-lg">Emantium</h1>
 
-					</div>
-				</div>
-				<!-- /HERO TEXT -->
-			</div>
+                    </div>
+                </div>
+                <!-- /HERO TEXT -->
+            </div>
 
-		</section>
-		<!-- /HERO -->
+        </section>
+        <!-- /HERO -->
 
         <!-- ABOUT SECTION -->
         <div id="about" class="brick">
@@ -147,9 +156,9 @@
                     </div>
                     <div class="col-md-8 col-md-offset-2">
                         <p class="welcome-text mb-50">At Emantium we believe a valuation shouldnt just tell you current market value.
-												 Our Proprietary algorythm not only shows your value today, but what if you waited 6 months? What if a BB drops another 30%? We use our patented MechaAI to make multi scenario value predictions as well as give actionable insights leading to higher multiples.
-												  Decrease the interpretation of risk, interest rates and skepticisiom for your investors.
-													We sing the music bankers want to hear. We know, because we are bankers. <br>Big Cheap Money, it feels great saying it in anticipation</p>
+                                                 Our Proprietary algorythm not only shows your value today, but what if you waited 6 months? What if a BB drops another 30%? We use our patented MechaAI to make multi scenario value predictions as well as give actionable insights leading to higher multiples.
+                                                  Decrease the interpretation of risk, interest rates and skepticisiom for your investors.
+                                                    We sing the music bankers want to hear. We know, because we are bankers. <br>Big Cheap Money, it feels great saying it in anticipation</p>
                         <!-- history button should go here-->
                     </div>
                 </div>
@@ -320,7 +329,7 @@
 
                         <!-- TESTIMONIALS CAROUSEL -->
                         <div class="owl-carousel slider-testimonials text-center">
-													<div class="slider-projects owl-carousel owl-theme text-center">
+                                                    <div class="slider-projects owl-carousel owl-theme text-center">
 
                             <!-- SLIDE 1 -->
                             <div class="item">
@@ -356,7 +365,7 @@
                                 </div>
                                 <div class="quote-author">Tom Ford</div>
                             </div>
-													</div> <!-- owl carousel -->
+                                                    </div> <!-- owl carousel -->
 
                             <!-- /SLIDE 3 -->
 
@@ -377,7 +386,7 @@
         <!-- BLOG SECTION -->
 
         <!-- CONTACT -->
-        <section class="brick bg-light">
+        <section class="brick bg-light brick-border">
 
             <div class="container">
 
@@ -396,19 +405,19 @@
                         <div class="contact-ico"><div class="lop-icon"><i class="fa fa-phone" aria-hidden="true"></i></div><div class="ci-title">Call Us</div><div class="ci-text">
                             +1(213)432-2377
                         </div>
-											</div>
+                                            </div>
                     </div>
                     <div class="col-sm-6 col-lg-4 pt-20 pb-20">
                         <div class="contact-ico"><div class="lop-icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div><div class="ci-title">Address</div><div class="ci-text">
                             100 Wilshire Blvd, Santa Monica
                         </div>
-											</div>
+                                            </div>
                     </div>
                     <div class="col-sm-6 col-lg-4 pt-20 pb-20 pb-xs-0">
                         <div class="contact-ico"><div class="lop-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></div><div class="ci-title">Email</div><div class="ci-text">
                             <a href="mailto:Inquire@emantium.com">Inquire@emantium.com</a>
                         </div>
-											</div>
+                                            </div>
                     </div>
                 </div>
 
@@ -465,6 +474,10 @@
             </div>
         </section>
         <!-- /CONTACT -->
+
+        
+        <?php /* Include FEED SECTION */ include('view/feed_view.php'); ?>
+
 
         <!-- GOOGLE MAP -->
         <div class="contact_us_map">
@@ -588,29 +601,29 @@
     </div>
     <!-- /WRAPPER -->
 
-	<!-- Javascript files -->
-	<script src="assets/js/jquery-2.1.3.min.js"></script>
-	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-	<script src="assets/js/jquery.youtubebackground.js"></script>
-	<script src="assets/js/jquery.magnific-popup.min.js"></script>
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="assets/js/jquery.simple-text-rotator.min.js"></script>
-	<script src="assets/js/isotope.pkgd.min.js"></script>
-	<script src="assets/js/packery-mode.pkgd.min.js"></script>
-	<script src="assets/js/appear.js"></script>
-	<script src="assets/js/jquery.easing.1.3.js"></script>
-	<script src="assets/js/jqBootstrapValidation.js"></script>
-	<script src="assets/js/jquery.fitvids.js"></script>
-	<script src="assets/js/jquery.parallax-1.1.3.js"></script>
-	<script src="assets/js/contact_mailer.js"></script>
-	<script src="assets/js/custom.js"></script>
-	<script src="assets/js/splitslider.js"></script>
-	<script src="assets/js/horizontaltimeline.js"></script>
-	<script src="assets/js/jquery.mobile.custom.min.js"></script>
-	<script src="assets/js/modernizr.js"></script>
-	<script src="assets/js/particles.min.js"></script>
-	<script src="assets/js/app.js"></script>
+    <!-- Javascript files -->
+    <script src="assets/js/jquery-2.1.3.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/jquery.youtubebackground.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.simple-text-rotator.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+    <script src="assets/js/packery-mode.pkgd.min.js"></script>
+    <script src="assets/js/appear.js"></script>
+    <script src="assets/js/jquery.easing.1.3.js"></script>
+    <script src="assets/js/jqBootstrapValidation.js"></script>
+    <script src="assets/js/jquery.fitvids.js"></script>
+    <script src="assets/js/jquery.parallax-1.1.3.js"></script>
+    <script src="assets/js/contact_mailer.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/splitslider.js"></script>
+    <script src="assets/js/horizontaltimeline.js"></script>
+    <script src="assets/js/jquery.mobile.custom.min.js"></script>
+    <script src="assets/js/modernizr.js"></script>
+    <script src="assets/js/particles.min.js"></script>
+    <script src="assets/js/app.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBphh6ekXB5_c8DtKGCN7w_DZnIZvPGXLg"></script>
     <script src="assets/js/jquery.superslides.min.js"></script>
 
