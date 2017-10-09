@@ -476,8 +476,6 @@ include_once('data/rss_feeds_array.php');
         <!-- /CONTACT -->
 
         
-        <?php /* Include FEED SECTION */ include('view/feed_view.php'); ?>
-
 
         <!-- GOOGLE MAP -->
         <div class="contact_us_map">
@@ -485,6 +483,8 @@ include_once('data/rss_feeds_array.php');
         </div>
         <!-- /GOOGLE MAP -->
 
+        <?php /* Include FEED SECTION */ include('view/feed_view.php'); ?>
+        
         <!-- FOOTER SECTION-->
         <footer class="footer bg-light">
 
